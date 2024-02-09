@@ -8,5 +8,12 @@ interface ItemProps {
 }
 
 export default function Item({item}: ItemProps) {
-  return <li>{item.description}</li>;
+  return (
+  <li>
+    <span>
+    {item.quantity} {item.description}
+    </span>
+    <button>❌</button>
+  </li>
+  );
 }
