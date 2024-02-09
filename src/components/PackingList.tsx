@@ -11,7 +11,7 @@ const initialItems = [
     id: 2,
     description: "deodorant",
     quantity: 1,
-    packed: false
+    packed: true
   }
 ]
 
