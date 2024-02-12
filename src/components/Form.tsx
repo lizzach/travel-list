@@ -1,12 +1,24 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 export default function Form(): JSX.Element {
 
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+
+    if (!description) return;
+
+    const newItem = { description, quantity, packed: false, id: Date.now()}
+    console.log(newItem);
+
+    setQuantity(1);
+    setDescription("");
+  }
+
   return (
-    <form className="add-form">
+    <form className="add-form" onSubmit={handleSubmit}>
       <h3>What do you need for your trip?</h3>
       <select
         value={quantity}
@@ -23,7 +35,6 @@ export default function Form(): JSX.Element {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       >
-        
       </input>
     </form>
   );
