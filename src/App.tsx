@@ -9,10 +9,14 @@ function App() {
 
   const [items, setItems] = useState([]);
 
+  function handleAddItem(newItem) {
+    setItems(items=> [...items, newItem]);
+  }
+
   return (
     <div className="app">
       <Logo />
-      <Form />
+      <Form onAddItem={handleAddItem}/>
       <PackingList items={items}/>
       <Stats />
     </div>
