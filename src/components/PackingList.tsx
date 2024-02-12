@@ -15,11 +15,22 @@ const initialItems = [
   }
 ]
 
-export default function PackingList(): JSX.Element {
+interface PackingListProps {
+  items: [
+    {
+      id: number;
+      description: string;
+      quantity: number;
+      packed: boolean;
+    }
+  ]
+}
+
+export default function PackingList({items}: PackingListProps): JSX.Element {
   return (
     <div className="list">
       <ul>
-        {initialItems.map(item =><Item item={item}/>)}
+        {items.map(item =><Item item={item}/>)}
       </ul>
     </div>
     );
