@@ -6,9 +6,10 @@ interface PackingListProps {
   items: ItemModel[];
   onDeleteItem: (id: number) => void;
   onToggleItem: (id: number) => void;
+  onClearList: () => void;
 }
 
-export default function PackingList({items, onDeleteItem, onToggleItem}: PackingListProps): JSX.Element {
+export default function PackingList({items, onDeleteItem, onToggleItem, onClearList}: PackingListProps): JSX.Element {
   const [sortBy, setSortBy] = useState("input");
 
   let sortedItems: ItemModel[] = items;
@@ -43,6 +44,7 @@ export default function PackingList({items, onDeleteItem, onToggleItem}: Packing
           <option value="description">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
+        <button onClick={onClearList}>Clear List</button>
       </div>
     </div>
   );
