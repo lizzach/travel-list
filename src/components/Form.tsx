@@ -1,6 +1,11 @@
 import { FormEvent, useState } from "react";
+import ItemModel from "../models/item";
 
-export default function Form({onAddItem}): JSX.Element {
+interface FormProps {
+  onAddItem: (newItem: ItemModel) => void;
+}
+
+export default function Form({onAddItem}: FormProps): JSX.Element {
 
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
