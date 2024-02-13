@@ -1,6 +1,21 @@
-export default function Stats(): JSX.Element {
+import ItemModel from "../models/item"
+
+interface StatsProps {
+  items: ItemModel[];
+}
+
+export default function Stats({items}: StatsProps): JSX.Element {
+  const numItems = items.length;
+  const numPacked = items.filter(item => item.packed).length;
+  const percentPacked = numItems === 0 ? 0 : Math.round((numPacked / numItems) * 100)
+
   return (
     <footer className="stats">
-        <em>You have X items on your list, and you already packed X%</em>
+        <em>
+          {percentPacked === 100 
+            ? 'You packed everything! You are ready to go.' 
+            : `You have ${numItems} items on your list, and you already packed ${percentPacked}%`
+          }
+        </em>
     </footer>)
 }
