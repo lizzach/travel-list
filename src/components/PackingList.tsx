@@ -1,14 +1,8 @@
 import Item from "./Item";
+import ItemModel from "../models/item";
 
 interface PackingListProps {
-  items: [
-    {
-      id: number;
-      description: string;
-      quantity: number;
-      packed: boolean;
-    }
-  ]
+  items: ItemModel[]
 }
 
 export default function PackingList({items}: PackingListProps): JSX.Element {
