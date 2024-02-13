@@ -36,6 +36,7 @@ export default function Form({onAddItem}): JSX.Element {
         onChange={(e) => setDescription(e.target.value)}
       >
       </input>
+      <button type="submit">Add</button>
     </form>
   );
 }
