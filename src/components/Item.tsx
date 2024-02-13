@@ -4,16 +4,17 @@ interface ItemProps {
     description: string;
     quantity: number;
     packed: boolean;
-  }
+  };
+  onDeleteItem: (id: number) => void;
 }
 
-export default function Item({item}: ItemProps) {
+export default function Item({item, onDeleteItem}: ItemProps) {
   return (
   <li>
     <span className={item.packed ? "packed" : ""}>
       {item.quantity} {item.description}
     </span>
-    <button>❌</button>
+    <button onClick={() => onDeleteItem(item.id)}>❌</button>
   </li>
   );
 }
