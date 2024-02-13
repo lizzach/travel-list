@@ -5,6 +5,13 @@ interface StatsProps {
 }
 
 export default function Stats({items}: StatsProps): JSX.Element {
+  if (items.length === 0) {
+    return (
+      <p className="stats">
+        <em>Start adding items to your packing list!</em>
+      </p>
+    )
+  }
   const numItems = items.length;
   const numPacked = items.filter(item => item.packed).length;
   const percentPacked = numItems === 0 ? 0 : Math.round((numPacked / numItems) * 100)

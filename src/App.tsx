@@ -19,7 +19,6 @@ function App() {
   }
 
   function handleToggleItem(id: number) {
-    console.log(id);
     setItems(items => 
       items.map(item => 
         item.id === id ? {...item, packed: !item.packed} : item
