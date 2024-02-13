@@ -1,10 +1,7 @@
+import ItemModel from "../models/item";
+
 interface ItemProps {
-  item: {
-    id: number;
-    description: string;
-    quantity: number;
-    packed: boolean;
-  };
+  item: ItemModel;
   onDeleteItem: (id: number) => void;
 }
 
